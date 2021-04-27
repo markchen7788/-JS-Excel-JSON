@@ -1,4 +1,4 @@
-document.write("<script language=javascript src='./js/xlsx.core.min.js'></script>");
+document.write("<script language=javascript src='https://markchen7788.github.io/-JS-Excel-JSON/js/xlsx.core.min.js'></script>");
 var excelData;
 function change(obj, callback) {
     if (!obj.files) {
