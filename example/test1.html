@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<header>
+    <meta charset="utf-8">
+    <title>ReadExcel演示</title>
+</header>
+<link rel='stylesheet' href='https://www.layuicdn.com/layui/css/layui.css'>
+<script src="./js/xlsxToJson.js"></script>
+<script src='https://www.layuicdn.com/layui/layui.js'></script>
+<style>
+    .my-background {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-image: url("https://cdn.pixabay.com/photo/2020/12/15/13/54/children-5833719_960_720.jpg");
+    }
+
+    .my-opacity {
+        opacity: 0.7;
+    }
+</style>
+
+<body class="my-background">
+
+    <div class="layui-main">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 25px;">
+            <legend><span class="layui-breadcrumb">
+                    <a href="test1.html"><b>示例一</b></a>
+                    <a href="test2.html"><b>示例二</b></a>
+                </span></legend>
+        </fieldset>
+        <input type="file" class="layui-hide" id="upload" onchange="change(this,getXlsxJson)" style="width: 320px;"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+
+        <form class="layui-form layui-form-pane" lay-filter="formTest" style="opacity: 0.9;" action="">
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label layui-bg-orange"
+                    onclick="document.getElementById('upload').click()">点击我上传Excel文件转换为Json!</label>
+                <div class="layui-input-block" id="text">
+                    <textarea placeholder="请先上传excel文件" class="layui-textarea" name="text"
+                        style="height: 600px;"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+
+        function getXlsxJson(json) {
+            layui.use('form', function () {
+                var form = layui.form;
+                form.val("formTest", { "text": JSON.stringify(json) });
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<header>
+    <meta charset="utf-8">
+    <title>ReadExcel演示</title>
+</header>
+<script src="./js/JsonToTable.js"></script>
+<script src="./js/xlsxToJson.js"></script>
+<style>
+    .my-background {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-image: url("https://cdn.pixabay.com/photo/2020/12/15/13/54/children-5833719_960_720.jpg");
+    }
+
+    .my-opacity {
+        opacity: 0.7;
+    }
+</style>
+
+<body class="my-background">
+    <div class="layui-main">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 25px;">
+            <legend><span class="layui-breadcrumb">
+                    <a href="test1.html"><b>示例一</b></a>
+                    <a href="test2.html"><b>示例二</b></a>
+                </span></legend>
+        </fieldset>
+        <div class="layui-panel layui-bg-gray" style="opacity: 0.9;">
+            <table class="layui-hide" lay-filter="test" id="test"></table>
+        </div>
+    </div>
+    <input id="upload" type="file" class="layui-hide" onchange="change(this,getXlsxJson)" style="width: 320px;"
+        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+
+    <script type="text/html" id="toolbarDemo"><!-- 此处编写左上角的按钮-->
+    <div class="layui-btn-container layui-table-tool-temp">
+        <div class="layui-inline" lay-event="import" title="文件导入数据">
+            <i class="layui-icon layui-icon-file-b"></i>
+        </div>
+    </div>
+    </script>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+      </script>
+</body>
+<script>
+    renderTable([{ "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" },
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }, 
+    { "看看我！": "点击左上角的文件按钮，即可上传xlsx文件转换成Json数据，并将其显示在当前的Layui数据表格中！" }]);
+    function getXlsxJson(json) {
+        renderTable(json);
+    }
+    layui.use(['element', 'table', 'jquery', 'upload'], function () {
+        var table = layui.table;
+        const $ = layui.jquery;
+        table.on('toolbar(test)', function (obj) {//左上角按钮相应
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'import':
+                    $("#upload").click();
+                    break;
+            };
+        });
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            //console.log(obj)
+            if (obj.event === 'del') {
+                var L = layer.confirm('亲亲，真的删除行么？', function (index) {
+                    obj.del();
+                    layer.close(index);
+                });
+                layer.style(L, {
+                    opacity: 0.9,
+                });
+            } else if (obj.event === 'edit') {
+                var L = layer.prompt({
+                    formType: 0,
+                    title: '你想干嘛？给我关掉！'
+                }, function (value, index, elem) {
+                    layer.close(index);
+                });
+                layer.style(L, {
+                    opacity: 0.9,
+                });
+            }
+        });
+    }
+    );
+</script>
+
+</html>
